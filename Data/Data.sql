@@ -1,0 +1,333 @@
+INSERT INTO TIPOEMPLEO (IDTIPOEMPLEO, EMPLEO, DESCRIPCION)
+VALUES (1, 'Mensajero', 'Distribuye paquetes');
+INSERT INTO TIPOEMPLEO (IDTIPOEMPLEO, EMPLEO, DESCRIPCION)
+VALUES (2, 'Chequeador', 'Chequea paquetes');
+INSERT INTO TIPOEMPLEO (IDTIPOEMPLEO, EMPLEO, DESCRIPCION)
+VALUES (3, 'Oficinista', 'Rastrea paquetes');
+INSERT INTO TIPOEMPLEO (IDTIPOEMPLEO, EMPLEO, DESCRIPCION)
+VALUES (4, 'Atencion al cliente', 'Recibe consultas');
+INSERT INTO TIPOEMPLEO (IDTIPOEMPLEO, EMPLEO, DESCRIPCION)
+VALUES (5, 'Personal de sucursal', 'Atiende clientes');
+
+
+INSERT INTO PROCESOENVIO (IDPROCESOENVIO, PROCESOENVIO, DESCRIPCION)
+VALUES (1, 'Pendiente', 'En esperera de ser enviado');
+INSERT INTO PROCESOENVIO (IDPROCESOENVIO, PROCESOENVIO, DESCRIPCION)
+VALUES (2, 'Cerrado', 'Ya el paquete fue entregado');
+INSERT INTO PROCESOENVIO (IDPROCESOENVIO, PROCESOENVIO, DESCRIPCION)
+VALUES (3, 'En distribucion', 'En distribucion');
+INSERT INTO PROCESOENVIO (IDPROCESOENVIO, PROCESOENVIO, DESCRIPCION)
+VALUES (4, 'Viajando a sucursal', 'Viajando a sucursal');
+INSERT INTO PROCESOENVIO (IDPROCESOENVIO, PROCESOENVIO, DESCRIPCION)
+VALUES (5, 'En revision', 'En revision');
+
+
+INSERT INTO CONDICIONPAQUETE (IDCONDICIONPAQUETE, CONDICIONPAQUETE, DESCRIPCION)
+VALUES (1, 'Excelente estado', 'Excelente estado');
+INSERT INTO CONDICIONPAQUETE (IDCONDICIONPAQUETE, CONDICIONPAQUETE, DESCRIPCION)
+VALUES (2, 'Regular', 'Regular');
+INSERT INTO CONDICIONPAQUETE (IDCONDICIONPAQUETE, CONDICIONPAQUETE, DESCRIPCION)
+VALUES (3, 'Mal estado', 'Mal estado');
+
+
+INSERT INTO TIPOSERVICIO (IDTIPOSERVICIO, SERVICIO, DESCRIPCION, MONTOBASE)
+VALUES (1, 'Expres', 'Sin retraso', 10000);
+INSERT INTO TIPOSERVICIO (IDTIPOSERVICIO, SERVICIO, DESCRIPCION, MONTOBASE)
+VALUES (2, 'Avion', 'Puede tener escalas', 8000);
+INSERT INTO TIPOSERVICIO (IDTIPOSERVICIO, SERVICIO, DESCRIPCION, MONTOBASE)
+VALUES (3, 'Barco', 'Tarda más', 5000);
+
+
+INSERT INTO PESORANGO (IDPESORANGO, PESOINFERIOR, PESOSUPERIOR, MONTO)
+VALUES (1, 0, 1, 0);
+INSERT INTO PESORANGO (IDPESORANGO, PESOINFERIOR, PESOSUPERIOR, MONTO)
+VALUES (2, 1, 2, 1000);
+INSERT INTO PESORANGO (IDPESORANGO, PESOINFERIOR, PESOSUPERIOR, MONTO)
+VALUES (3, 2, 5, 2000);
+INSERT INTO PESORANGO (IDPESORANGO, PESOINFERIOR, PESOSUPERIOR, MONTO)
+VALUES (4, 5, 10, 4000);
+INSERT INTO PESORANGO (IDPESORANGO, PESOINFERIOR, PESOSUPERIOR, MONTO)
+VALUES (5, 10, 20, 5000);
+INSERT INTO PESORANGO (IDPESORANGO, PESOINFERIOR, PESOSUPERIOR, MONTO)
+VALUES (6, 20, 50, 10000);
+INSERT INTO PESORANGO (IDPESORANGO, PESOINFERIOR, PESOSUPERIOR, MONTO)
+VALUES (7, 50, 100, 100000);
+
+INSERT INTO DISTANCIARANGO(IDDISTANCIARANGO, DISTANCIAINFERIOR, DISTANCIASUPERIOR, MONTO)
+VALUES (1, 0, 100, 1000);
+INSERT INTO DISTANCIARANGO(IDDISTANCIARANGO, DISTANCIAINFERIOR, DISTANCIASUPERIOR, MONTO)
+VALUES (2, 100, 1000, 8000);
+INSERT INTO DISTANCIARANGO(IDDISTANCIARANGO, DISTANCIAINFERIOR, DISTANCIASUPERIOR, MONTO)
+VALUES (4, 1000, 8000, 15000);
+INSERT INTO DISTANCIARANGO(IDDISTANCIARANGO, DISTANCIAINFERIOR, DISTANCIASUPERIOR, MONTO)
+VALUES (5, 8000, 20000, 25000);
+
+
+INSERT INTO SUCURSAL(IDSUCURSAL, NOMBRE, DIRECCION)
+VALUES (1, 'Sucursal Costa Rica', DIRECCION('Cartago', 'Costa Rica', 'Calle TEC'));
+INSERT INTO SUCURSAL(IDSUCURSAL, NOMBRE, DIRECCION)
+VALUES (2, 'Sucursal Estados Unidos', DIRECCION('New York', 'Estado Unidos', 'Calle 11, Ave 4'));
+INSERT INTO SUCURSAL(IDSUCURSAL, NOMBRE, DIRECCION)
+VALUES (3, 'Sucursal China', DIRECCION('Shangai', 'China', 'Calle 9, Ave 2'));
+
+
+INSERT INTO DISTANCIAXSUCURSAL(IDSUCURSALORIGEN, IDSUCURSALDESTINO, DISTANCIA)
+VALUES (1, 2, 1965);
+INSERT INTO DISTANCIAXSUCURSAL(IDSUCURSALORIGEN, IDSUCURSALDESTINO, DISTANCIA)
+VALUES (1, 3, 15429);
+INSERT INTO DISTANCIAXSUCURSAL(IDSUCURSALORIGEN, IDSUCURSALDESTINO, DISTANCIA)
+VALUES (2, 3, 15820);
+
+
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (1, NombreCompleto('Lammond', 'Godleman', 'Harnor'), 339885860,
+        Direccion('Afghanistan', 'Qalah-ye Sh', '4457 Becker Hill'),
+        NumTelefonos(NumTel('Personal', 85028613), NumTel('Trabajo', 87408934)),
+        Correos(Correo('Personal', 'lharnor0@weebly.com'), Correo('Trabajo', 'lharnor0@nature.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (2, NombreCompleto('Charmine', 'Gaynsford', 'Cogin'), 649081282,
+        Direccion('Philippines', 'Bualan', '798 Annamark Alley'),
+        NumTelefonos(NumTel('Personal', 84887043), NumTel('Trabajo', 83828978)),
+        Correos(Correo('Personal', 'ccogin1@yolasite.com'), Correo('Trabajo', 'ccogin1@slate.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (3, NombreCompleto('Emlen', 'Hawkswood', 'Richt'), 241984360,
+        Direccion('China', 'Yanglong', '53265 Charing Cross Lane'),
+        NumTelefonos(NumTel('Personal', 89569081), NumTel('Trabajo', 86492987)),
+        Correos(Correo('Personal', 'ericht2@topsy.com'), Correo('Trabajo', 'ericht2@nbcnews.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (4, NombreCompleto('Wileen', 'Boswood', 'Gridon'), 501581242,
+        Direccion('Kazakhstan', 'Ust-Kamenogorsk', '05 Walton Place'),
+        NumTelefonos(NumTel('Personal', 85139288), NumTel('Trabajo', 82316116)),
+        Correos(Correo('Personal', 'wgridon3@xrea.com'), Correo('Trabajo', 'wgridon3@hc360.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (5, NombreCompleto('Lurette', 'Flindall', 'Djordjevic'), 217038219,
+        Direccion('Sweden', 'Nykvarn', '1622 Nevada Plaza'),
+        NumTelefonos(NumTel('Personal', 86377772), NumTel('Trabajo', 88834288)),
+        Correos(Correo('Personal', 'ldjordjevic4@storify.com'), Correo('Trabajo', 'ldjordjevic4@pinterest.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (6, NombreCompleto('Brendis', 'Banghe', 'Romayne'), 206941093,
+        Direccion('Philippines', 'Corcuera', '45023 Sauthoff Park'),
+        NumTelefonos(NumTel('Personal', 82578894), NumTel('Trabajo', 83184321)),
+        Correos(Correo('Personal', 'bromayne5@jugem.jp'), Correo('Trabajo', 'bromayne5@friendfeed.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (7, NombreCompleto('Lenka', 'Eronie', 'Battrum'), 887918852,
+        Direccion('United States', 'Des Moines', '57 Debs Crossing'),
+        NumTelefonos(NumTel('Personal', 87825096), NumTel('Trabajo', 84656697)),
+        Correos(Correo('Personal', 'lbattrum6@360.cn'), Correo('Trabajo', 'lbattrum6@hugedomains.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (8, NombreCompleto('Karlie', 'Wollers', 'Skeats'), 601297712,
+        Direccion('Vietnam', 'Thị Trấn', '1 Warbler Place'),
+        NumTelefonos(NumTel('Personal', 83842618), NumTel('Trabajo', 87141970)),
+        Correos(Correo('Personal', 'kskeats7@gnu.org'), Correo('Trabajo', 'kskeats7@scribd.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (9, NombreCompleto('Thibaut', 'Ailsbury', 'Lancaster'), 982012283,
+        Direccion('Czech Republic', 'Velké Hoštice', '354 Grover Drive'),
+        NumTelefonos(NumTel('Personal', 83256113), NumTel('Trabajo', 83655200)),
+        Correos(Correo('Personal', 'tlancaster8@shinystat.com'), Correo('Trabajo', 'tlancaster8@flavors.me')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (10, NombreCompleto('Pip', 'Remington', 'Treby'), 278023830, Direccion('Botswana', 'Kopong', '095 Dryden Way'),
+        NumTelefonos(NumTel('Personal', 85910153), NumTel('Trabajo', 83614551)),
+        Correos(Correo('Personal', 'ptreby9@wired.com'), Correo('Trabajo', 'ptreby9@phoca.cz')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (11, NombreCompleto('Gayelord', 'Fairholme', 'Fishleigh'), 223602096,
+        Direccion('Serbia', 'Kladovo', '5 Southridge Parkway'),
+        NumTelefonos(NumTel('Personal', 89388664), NumTel('Trabajo', 82024848)),
+        Correos(Correo('Personal', 'gfishleigha@altervista.org'), Correo('Trabajo', 'gfishleigha@wunderground.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (12, NombreCompleto('Jimmy', 'Nobriga', 'Miguet'), 467784252,
+        Direccion('Lithuania', 'Kudirkos Naumiestis', '08432 Little Fleur Center'),
+        NumTelefonos(NumTel('Personal', 85511317), NumTel('Trabajo', 87657566)),
+        Correos(Correo('Personal', 'jmiguetb@skyrock.com'), Correo('Trabajo', 'jmiguetb@netlog.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (13, NombreCompleto('Dur', 'Pavek', 'Dunnet'), 304794379,
+        Direccion('Mauritius', 'Ecroignard', '24884 Bluejay Trail'),
+        NumTelefonos(NumTel('Personal', 85009300), NumTel('Trabajo', 86787779)),
+        Correos(Correo('Personal', 'ddunnetc@squarespace.com'), Correo('Trabajo', 'ddunnetc@cornell.edu')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (14, NombreCompleto('Berna', 'Island', 'Roskrug'), 474425956,
+        Direccion('Greece', 'Mýrina', '098 Sunnyside Center'),
+        NumTelefonos(NumTel('Personal', 87230477), NumTel('Trabajo', 81637302)),
+        Correos(Correo('Personal', 'broskrugd@home.pl'), Correo('Trabajo', 'broskrugd@scientificamerican.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (15, NombreCompleto('Nady', 'Brice', 'Alliban'), 135410912,
+        Direccion('Russia', 'Nyuksenitsa', '8129 Comanche Drive'),
+        NumTelefonos(NumTel('Personal', 87242495), NumTel('Trabajo', 87628404)),
+        Correos(Correo('Personal', 'nallibane@msn.com'), Correo('Trabajo', 'nallibane@networkadvertising.org')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (16, NombreCompleto('Ave', 'Begin', 'Franzewitch'), 317056973,
+        Direccion('Czech Republic', 'Stod', '95 Havey Terrace'),
+        NumTelefonos(NumTel('Personal', 84464215), NumTel('Trabajo', 84215061)),
+        Correos(Correo('Personal', 'afranzewitchf@boston.com'), Correo('Trabajo', 'afranzewitchf@baidu.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (17, NombreCompleto('Colly', 'Iiannoni', 'Lefeuvre'), 217283403,
+        Direccion('Sweden', 'Luleå', '56358 Morningstar Trail'),
+        NumTelefonos(NumTel('Personal', 83223879), NumTel('Trabajo', 81246738)),
+        Correos(Correo('Personal', 'clefeuvreg@miitbeian.gov.cn'), Correo('Trabajo', 'clefeuvreg@salon.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (18, NombreCompleto('Aida', 'Iskov', 'Dowry'), 482353605, Direccion('Peru', 'Ferreñafe', '469 Florence Hill'),
+        NumTelefonos(NumTel('Personal', 85611864), NumTel('Trabajo', 86255756)),
+        Correos(Correo('Personal', 'adowryh@about.com'), Correo('Trabajo', 'adowryh@ocn.ne.jp')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (19, NombreCompleto('Lars', 'Whooley', 'Maddock'), 806236737,
+        Direccion('Portugal', 'Mamede de Infesta', '79 Kensington'),
+        NumTelefonos(NumTel('Personal', 89048753), NumTel('Trabajo', 85920130)),
+        Correos(Correo('Personal', 'lmaddocki@princeton.edu'), Correo('Trabajo', 'lmaddocki@163.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (20, NombreCompleto('Skip', 'Strafford', 'Terne'), 150646318,
+        Direccion('Portugal', 'Charneca da Cotovia', '489 Hermina Terrace'),
+        NumTelefonos(NumTel('Personal', 85392177), NumTel('Trabajo', 86605869)),
+        Correos(Correo('Personal', 'sternej@nba.com'), Correo('Trabajo', 'sternej@mashable.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (21, NombreCompleto('Jard', 'Abram', 'Catlin'), 773353427,
+        Direccion('Brazil', 'Rio Pardo', '60187 Claremont Pass'),
+        NumTelefonos(NumTel('Personal', 86446618), NumTel('Trabajo', 82389729)),
+        Correos(Correo('Personal', 'jcatlink@exblog.jp'), Correo('Trabajo', 'jcatlink@icq.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (22, NombreCompleto('Paul', 'Gress', 'Mulderrig'), 375236216,
+        Direccion('Philippines', 'San Juan', '7 Division Hill'),
+        NumTelefonos(NumTel('Personal', 88614271), NumTel('Trabajo', 86007954)),
+        Correos(Correo('Personal', 'pmulderrigl@cmu.edu'), Correo('Trabajo', 'pmulderrigl@dion.ne.jp')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (23, NombreCompleto('Elwira', 'Gockelen', 'Pickles'), 803971774,
+        Direccion('Indonesia', 'Pondokwungu', '44 Arrowood Terrace'),
+        NumTelefonos(NumTel('Personal', 89425107), NumTel('Trabajo', 83311155)),
+        Correos(Correo('Personal', 'epicklesm@google.co.uk'), Correo('Trabajo', 'epicklesm@va.gov')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (24, NombreCompleto('Phillip', 'Shorte', 'Doll'), 660533465,
+        Direccion('China', 'Bozhou', '707 Waywood Crossing'),
+        NumTelefonos(NumTel('Personal', 88107729), NumTel('Trabajo', 89205370)),
+        Correos(Correo('Personal', 'pdolln@dot.gov'), Correo('Trabajo', 'pdolln@sfgate.com')));
+INSERT INTO PERSONA (IDPERSONA, NOMBRE, CEDULA, DIRECCION, NUMEROSTELEFONO, CORREOS)
+VALUES (25, NombreCompleto('Lincoln', 'Filipczynski', 'Whacket'), 871146433,
+        Direccion('Brazil', 'Itaperuna', '59 Old Shore Trail'),
+        NumTelefonos(NumTel('Personal', 83747630), NumTel('Trabajo', 82375958)),
+        Correos(Correo('Personal', 'lwhacketo@wunderground.com'), Correo('Trabajo', 'lwhacketo@plala.or.jp')));
+
+
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (1, 1, 'Usuario 1');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (2, 2, 'Usuario 2');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (3, 3, 'Usuario 3');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (4, 4, 'Usuario 4');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (5, 5, 'Usuario 5');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (6, 6, 'Usuario 6');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (7, 7, 'Usuario 7');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (8, 8, 'Usuario 8');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (9, 9, 'Usuario 9');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (10, 10, 'Usuario 10');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (11, 11, 'Usuario 11');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (12, 12, 'Usuario 12');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (13, 13, 'Usuario 13');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (14, 14, 'Usuario 14');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (15, 15, 'Usuario 15');
+INSERT INTO CLIENTE(IDCLIENTE, IDPERSONA, USUARIO)
+VALUES (16, 16, 'Usuario 16');
+
+
+INSERT INTO EMPLEADO(IDEMPLEADO, IDPERSONA, IDENTIFICACION, IDTIPOEMPLEO)
+VALUES (1, 17, 132, 1);
+INSERT INTO EMPLEADO(IDEMPLEADO, IDPERSONA, IDENTIFICACION, IDTIPOEMPLEO)
+VALUES (2, 18, 242, 1);
+INSERT INTO EMPLEADO(IDEMPLEADO, IDPERSONA, IDENTIFICACION, IDTIPOEMPLEO)
+VALUES (3, 19, 353, 1);
+INSERT INTO EMPLEADO(IDEMPLEADO, IDPERSONA, IDENTIFICACION, IDTIPOEMPLEO)
+VALUES (4, 20, 453, 1);
+INSERT INTO EMPLEADO(IDEMPLEADO, IDPERSONA, IDENTIFICACION, IDTIPOEMPLEO)
+VALUES (5, 21, 557, 1);
+INSERT INTO EMPLEADO(IDEMPLEADO, IDPERSONA, IDENTIFICACION, IDTIPOEMPLEO)
+VALUES (6, 22, 667, 2);
+INSERT INTO EMPLEADO(IDEMPLEADO, IDPERSONA, IDENTIFICACION, IDTIPOEMPLEO)
+VALUES (7, 23, 797, 3);
+INSERT INTO EMPLEADO(IDEMPLEADO, IDPERSONA, IDENTIFICACION, IDTIPOEMPLEO)
+VALUES (8, 24, 834, 4);
+INSERT INTO EMPLEADO(IDEMPLEADO, IDPERSONA, IDENTIFICACION, IDTIPOEMPLEO)
+VALUES (9, 25, 957, 5);
+
+
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (1, 1, 1, 2, 1, PAQUETES(PAQUETE('paquete', 1)), 10244, 1342);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (2, 1, 3, 2, 2, PAQUETES(PAQUETE('paquete', 2), PAQUETE('paquete', 14)), 42000, 2345);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (3, 2, 1, 3, 3, PAQUETES(PAQUETE('paquete', 14)), 53000, 3453);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (4, 3, 1, 2, 1, PAQUETES(PAQUETE('paquete', 15)), 11000, 4354);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (5, 4, 1, 3, 2, PAQUETES(PAQUETE('paquete', 6)), 15000, 5533);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (6, 4, 3, 2, 3, PAQUETES(PAQUETE('paquete', 9), PAQUETE('paquete', 153), PAQUETE('paquete', 8)), 16400, 6422);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (7, 5, 2, 1, 1, PAQUETES(PAQUETE('paquete', 100)), 16400, 7432);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (8, 8, 3, 2, 2, PAQUETES(PAQUETE('paquete', 121)), 23000, 8442);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (9, 10, 2, 3, 3, PAQUETES(PAQUETE('paquete', 14), PAQUETE('paquete', 25)), 16200, 9342);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (10, 12, 1, 2, 1, PAQUETES(PAQUETE('paquete', 15)), 11600, 10342);
+INSERT INTO ENVIO (IDENVIO, IDCLIENTE, IDSUCURSALORIGEN, IDSUCURSALDESTINO, IDTIPOSERVICIO, PAQUETES, MONTO,
+                   NUMEROCONFIMARCION)
+VALUES (11, 16, 3, 2, 2, PAQUETES(PAQUETE('paquete', 17), PAQUETE('paquete', 11)), 10700, 11342);
+
+
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (1, 1, 2, 1, 'Entregado');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (2, 2, 4, 1, 'mar');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (3, 3, 1, 1, 'aduanas');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (4, 4, 5, 2, 'cartago');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (5, 5, 3, 1, 'san jose');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (6, 6, 3, 1, 'los angeles');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (7, 7, 3, 1, 'china');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (8, 8, 3, 2, 'panama');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (9, 9, 3, 1, 'san jose');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (10, 10, 3, 1, 'usa');
+INSERT INTO ESTADOENVIO(IDESTADOENVIO, IDENVIO, IDPROCESOENVIO, IDCONDICIONPAQUETE, LUGARACTUAL)
+VALUES (11, 11, 3, 3, 'alemania');
+
+
+INSERT INTO DISTRIBUCION(IDDISTRIBUCION, IDENVIO, IDEMPLEADO, DISTANCIO, DIRECCIONDESTINO)
+VALUES (1, 5, 1, 100, DIRECCION('Costa Rica', ' Cartago', 'calle 1'));
+INSERT INTO DISTRIBUCION(IDDISTRIBUCION, IDENVIO, IDEMPLEADO, DISTANCIO, DIRECCIONDESTINO)
+VALUES (2, 6, 2, 312, DIRECCION('Costa Rica', ' san jose', 'calle 3'));
+INSERT INTO DISTRIBUCION(IDDISTRIBUCION, IDENVIO, IDEMPLEADO, DISTANCIO, DIRECCIONDESTINO)
+VALUES (3, 7, 2, 56, DIRECCION('Costa Rica', ' alajuela', 'calle 14'));
+INSERT INTO DISTRIBUCION(IDDISTRIBUCION, IDENVIO, IDEMPLEADO, DISTANCIO, DIRECCIONDESTINO)
+VALUES (4, 8, 2, 746, DIRECCION('China', ' tokio', 'calle 12'));
+INSERT INTO DISTRIBUCION(IDDISTRIBUCION, IDENVIO, IDEMPLEADO, DISTANCIO, DIRECCIONDESTINO)
+VALUES (5, 9, 3, 764, DIRECCION('China', ' tokio', 'calle 16'));
+INSERT INTO DISTRIBUCION(IDDISTRIBUCION, IDENVIO, IDEMPLEADO, DISTANCIO, DIRECCIONDESTINO)
+VALUES (6, 10, 3, 876, DIRECCION('Usa', ' LA', 'calle 11'));
+INSERT INTO DISTRIBUCION(IDDISTRIBUCION, IDENVIO, IDEMPLEADO, DISTANCIO, DIRECCIONDESTINO)
+VALUES (7, 11, 4, 945, DIRECCION('Usa', ' miami', 'calle 7'));
