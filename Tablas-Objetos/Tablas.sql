@@ -62,7 +62,7 @@ CREATE TABLE PesoRango
     IdPesoRango  NUMBER PRIMARY KEY NOT NULL,
     PesoInferior Number, -- Peso en kilos
     PesoSuperior Number,
-    Monto        Number -- Monto en Dolares
+    Monto        Number  -- Monto en Dolares
 );
 
 CREATE TABLE DistanciaRango
@@ -76,8 +76,8 @@ CREATE TABLE DistanciaRango
 CREATE TABLE ProcesoEnvio
 (
     IdProcesoEnvio NUMBER PRIMARY KEY NOT NULL,
-    ProcesoEnvio  VARCHAR2(20),
-    Descripcion      VARCHAR2(50)
+    ProcesoEnvio   VARCHAR2(20),
+    Descripcion    VARCHAR2(50)
 );
 
 
@@ -108,7 +108,7 @@ CREATE TABLE EstadoEnvio
 (
     IdEstadoEnvio      NUMBER PRIMARY KEY NOT NULL,
     IdEnvio            NUMBER,
-    IdProcesoEnvio   NUMBER,
+    IdProcesoEnvio     NUMBER,
     IdCondicionPaquete NUMBER,
     LugarActual        VARCHAR2(20),
     CONSTRAINT fk_Envio FOREIGN KEY (IdEnvio) REFERENCES Envio (IdEnvio),
@@ -126,5 +126,3 @@ CREATE TABLE Distribucion
     CONSTRAINT fk_EnvioDistribucion FOREIGN KEY (IdEnvio) REFERENCES Envio (IdEnvio),
     CONSTRAINT fk_EmpleadoDistribucion FOREIGN KEY (IdEmpleado) REFERENCES Empleado (IdEmpleado)
 );
-
-
