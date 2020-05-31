@@ -1,23 +1,36 @@
 -- ConsultarUsuario: consulta cliente por nombre de usuario
-CREATE OR REPLACE PROCEDURE ConsultarUsuario(nombreUsuario VARCHAR2) IS
+CREATE OR REPLACE PROCEDURE ConsultarUsuario(nombreUsuario IN VARCHAR2, nombre_ OUT NOMBRECOMPLETO) AS
 BEGIN
-    SELECT * FROM Cliente C WHERE C.USUARIO = nombreUsuario;
+    SELECT P.NOMBRE
+    INTO nombre_
+    FROM Cliente C
+             INNER JOIN PERSONA P on C.IDPERSONA = P.IDPERSONA
+    WHERE C.USUARIO = nombreUsuario;
 END;
+
+-- Prueba consulta usuario
+DECLARE
+    nombre_ NOMBRECOMPLETO;
+BEGIN
+    ConsultarUsuario('Usuario 5', nombre_);
+    DBMS_OUTPUT.PUT(nombre_.NOMBRE);
+end;
+
 
 
 -- ModificarUsuario: modificar cliente por nombre de usuario
-CREATE OR REPLACE FUNCTION ModificarUsuario(IdCliente_ NUMBER, user VARCHAR2 DEFAULT NULL,
-                                            nombre_ VARCHAR2 DEFAULT NULL,
-                                            cedula_ NUMBER DEFAULT NULL, direct DIRECCION DEFAULT NULL,
-                                            numsTel_ NUMTELEFONOS DEFAULT NULL,
-                                            correos_ CORREOS DEFAULT NULL) RETURN NUMBER AS
+CREATE OR REPLACE PROCEDURE ModificarUsuario(IdCliente_ IN NUMBER, user IN VARCHAR2 DEFAULT NULL, nombre_ IN NOMBRECOMPLETO DEFAULT NULL,
+                                             cedula_ IN NUMBER DEFAULT NULL, direct IN DIRECCION DEFAULT NULL, numsTel_ IN NUMTELEFONOS DEFAULT NULL,
+                                             correos_ IN CORREOS DEFAULT NULL) AS
     IdPersona_ NUMBER;
 
 BEGIN
     SELECT P1.IDPERSONA
     INTO IdPersona_
     FROM PERSONA P1
-             INNER JOIN CLIENTE C on P1.IDPERSONA = C.IDPERSONA;
+             INNER JOIN CLIENTE C on P1.IDPERSONA = C.IDPERSONA
+    WHERE C.IDCLIENTE = IdCliente_;
+
 
     if user is not null then
         UPDATE CLIENTE C
@@ -54,5 +67,9 @@ BEGIN
         SET P2.CORREOS = correos_
         WHERE IDPERSONA = IdPersona_;
     end if;
-    RETURN 1;
 END ModificarUsuario;
+
+-- Prueba ModificarUsuario
+BEGIN
+    ModificarUsuario(1, 'User 1111'); -- Cambia el nombre de usuario
+end;
